@@ -3,6 +3,7 @@
            :hoverable="true"
            :paginated="true"
            :per-page="15"
+           :row-class="rowcolorselector"
   />
 </template>
 
@@ -27,8 +28,16 @@ export default {
     }
   },
   methods: {
-    rowclickact: function(params) {
-      alert(params.row.id)
+    rowcolorselector: function(row) {
+      if (row.state === "Fine") {
+        return "is-fine"
+      } else if (row.state === "Warning") {
+        return "is-warning"
+      } else if (row.state === "Danger") {
+        return "is-danger"
+      } else if (row.state === "Expired") {
+        return "is-expired"
+      }
     }
   },
   mounted: function() {
@@ -46,19 +55,18 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
+<style>
+tr.is-fine {
+  background: #EFFAF3;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+tr.is-warning {
+  background: #FFF0B3;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+tr.is-danger{
+  background: #FFCCD7;
 }
-a {
-  color: #42b983;
+tr.is-expired{
+  background: #363636;
+  color: #DB143C;
 }
 </style>
