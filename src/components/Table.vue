@@ -3,8 +3,8 @@
            :hoverable="true"
            :paginated="true"
            :per-page="15"
-           :row-class="rowcolorselector"
-  />
+           :row-class="rowcolorselector">
+  </b-table>
 </template>
 
 <script>

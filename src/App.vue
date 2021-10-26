@@ -14,16 +14,19 @@
         <Table />
       </div>
     </div>
+    <AddHostModal />
   </div>
 </template>
 
 <script>
 import Table from './components/Table.vue'
+import AddHostModal from './components/AddHostModal.vue'
 
 export default {
   name: 'App',
   components: {
     Table,
+    AddHostModal,
   }
 }
 </script>
