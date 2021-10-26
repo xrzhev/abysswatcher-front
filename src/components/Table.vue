@@ -1,9 +1,35 @@
 <template>
-  <b-table :columns="columns" :data="rows"
+  <b-table :data="rows"
            :hoverable="true"
            :paginated="true"
            :per-page="15"
-           :row-class="rowcolorselector">
+           :row-class="rowColorSelector">
+      <b-table-column label="ID" field="id" width="80" numeric sortable v-slot="props">
+        {{ props.row.id }}
+      </b-table-column>
+      <b-table-column label="Status" field="state" width="100" sortable v-slot="props">
+        <b-tag :type="tagColorSelector(props.row)">
+          {{ props.row.state }}
+        </b-tag>
+      </b-table-column>
+      <b-table-column label="HostName" field="name" sortable searchable v-slot="props">
+        {{ props.row.name }}
+      </b-table-column>
+      <b-table-column label="URL" field="url" sortable searchable v-slot="props">
+        {{ props.row.url }}
+      </b-table-column>
+      <b-table-column label="Port" field="port" sortable numeric v-slot="props">
+        {{ props.row.port }}
+      </b-table-column>
+      <b-table-column label="Cert Begin Date" field="begin_date" sortable v-slot="props">
+        {{ props.row.begin_date }}
+      </b-table-column>
+      <b-table-column label="Cert Expire Date" field="expire_date" sortable v-slot="props">
+        {{ props.row.expire_date }}
+      </b-table-column>
+      <b-table-column label="Issuer" field="issuer" sortable v-slot="props">
+        {{ props.row.issuer}}
+      </b-table-column>
   </b-table>
 </template>
 
@@ -15,20 +41,10 @@ export default {
       // api_base: location.protocol + "//" + location.hostname + ":8000"
       api_base: "http://localhost:8000",
       rows: "",
-      columns:[
-        {label: "ID", field: "id", width: "80", numeric: true, sortable: true},
-        {label: "Status", field: "state", width: "100", sortable: true},
-        {label: "HostName", field: "name", sortable: true, searchable: true},
-        {label: "URL", field: "url", sortable: true, searchable: true},
-        {label: "Port", field: "port", numeric: true, sortable: true},
-        {label: "Cert Begin Date", field: "begin_date", sortable: true},
-        {label: "Cert Expire Date", field: "expire_date", sortable: true},
-        {label: "Issuer", field: "issuer", sortable: true},
-      ]
     }
   },
   methods: {
-    rowcolorselector: function(row) {
+    rowColorSelector: function(row) {
       if (row.state === "Fine") {
         return "is-fine"
       } else if (row.state === "Warning") {
@@ -37,6 +53,17 @@ export default {
         return "is-danger"
       } else if (row.state === "Expired") {
         return "is-expired"
+      }
+    },
+    tagColorSelector: function(row) {
+      if (row.state === "Fine") {
+        return "is-success"
+      } else if (row.state === "Warning") {
+        return "is-warning"
+      } else if (row.state === "Danger") {
+        return "is-danger"
+      } else if (row.state === "Expired") {
+        return "is-black"
       }
     }
   },
