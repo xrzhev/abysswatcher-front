@@ -89,10 +89,10 @@ tr.is-fine {
 tr.is-warning {
   background: #FFF0B3;
 }
-tr.is-danger{
+tr.is-danger {
   background: #FFCCD7;
 }
-tr.is-expired{
+tr.is-expired {
   background: #363636;
   color: #DB143C;
 }

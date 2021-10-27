@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="header hero is-primary">
+    <div class="header hero">
       <div class="hero-body">
         <p class="title has-text-centered">
           <b-icon icon="eye" size="is-medium"/>
