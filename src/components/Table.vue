@@ -16,7 +16,7 @@
         {{ props.row.name }}
       </b-table-column>
       <b-table-column label="URL" field="url" sortable searchable v-slot="props">
-        {{ props.row.url }}
+        <a :href="props.row.url">{{ props.row.url }}</a>
       </b-table-column>
       <b-table-column label="Port" field="port" sortable numeric v-slot="props">
         {{ props.row.port }}

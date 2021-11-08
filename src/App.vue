@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="header hero">
+    <div class="header hero is-small">
       <div class="hero-body">
         <p class="title has-text-centered">
           <b-icon icon="eye" size="is-medium"/>
@@ -8,13 +8,13 @@
           <b-icon icon="eye" size="is-medium"/>
         </p>
       </div>
+      <AddHostModal />
     </div>
     <div class="columns is-centered">
       <div class="column is-10 mt-4">
         <Table />
       </div>
     </div>
-    <AddHostModal />
   </div>
 </template>
 

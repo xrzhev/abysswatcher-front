@@ -1,9 +1,9 @@
 <template>
   <section>
     <b-button
-      label="Launch component modal"
+      label="Add Host"
       type="is-primary"
-      size="is-medium"
+      size="is-small"
       @click="isModalActive = true" />
 
     <b-modal
